@@ -1,12 +1,16 @@
-Fail the Jenkins Build if SonarQube scan fails:
+This Pipeline does the following activities:
+
+1. Checkout the code from GitHub
+2. Compiles the code using Maven 3 and JDK 8.
+3. Run SonarQube Scan.
+4. Fails the Jenkins build if SonarQube Quality Gates fails. The details about this step can be found on the below link:
 https://jenkins.io/blog/2017/04/18/continuousdelivery-devops-sonarqube/
 
-However, I had encounter the below error after following the above link.
-
+Please note that I had encounter the below error after following the above link.
 org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
 WorkflowScript: 32: Expected a step @ line 32, column 25.
-                           def qg = waitForQualityGate()
                            ^
+                           def qg = waitForQualityGate()
 WorkflowScript: 33: Expected a step @ line 33, column 25.
                            if (qg.status != 'OK') {
                            ^
@@ -31,5 +35,4 @@ WorkflowScript: 33: Expected a step @ line 33, column 25.
 
 
 I had fixed the Jenkinsfile by following the solution given on the below page (i.e. by adding script block):
-
 https://stackoverflow.com/questions/39832862/jenkins-cannot-define-variable-in-pipeline-stage
