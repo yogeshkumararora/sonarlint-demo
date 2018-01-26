@@ -2,7 +2,7 @@ This Pipeline does the following activities:
 
 1. Checkout the code from GitHub
 2. Compiles the code using Maven 3 and JDK 8.
-3. Run SonarQube Scan.
+3. Run SonarQube Scan on version 6.7.1.
 4. Fails the Jenkins build if SonarQube Quality Gates fails. The details about this step can be found on the below link:
 https://jenkins.io/blog/2017/04/18/continuousdelivery-devops-sonarqube/
 
