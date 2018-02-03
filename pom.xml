@@ -12,7 +12,7 @@
         <snapshotRepository>
             <id>snapshots</id>
             <name>Internal Snapshots</name>
-            <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+            <url>http://localhost:8081/repository/snapshots/</url>
         </snapshotRepository>
 
         <repository>
