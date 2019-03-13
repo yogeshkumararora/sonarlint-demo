@@ -19,19 +19,16 @@ pipeline {
         }
         
         //Just run SonarQube
-        /*stage('SonarQube Scan') {
+        stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh 'mvn sonar:sonar'
                 }
             }
-        }*/
-        //Run SonarQube and check quality gates
+        }
+        //Check quality gates
         stage("SonarQube Quality Gate") {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
-                }
                 timeout(time: 1, unit: 'HOURS') {
                     script{
                         def qg = waitForQualityGate()
