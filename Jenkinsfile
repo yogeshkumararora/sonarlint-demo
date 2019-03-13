@@ -17,14 +17,14 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('SonarQube Scan') {
+        /*stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh 'mvn sonar:sonar'
                 }
             }
-        }
-        /*stage("SonarQube Quality Gate") {
+        }*/
+        stage("SonarQube Quality Gate") {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
                     script{
@@ -35,6 +35,6 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
     }
 }
