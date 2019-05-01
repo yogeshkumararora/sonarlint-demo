@@ -39,7 +39,7 @@ pipeline {
                         if (qg.status == 'OK') {
                            // Input Step
                             timeout(time: 15, unit: "MINUTES") {
-                                def userInput = (input message: 'SonarQube Quality Gate is failing, do you still want to proceed?', ok: 'Yes')
+                                def userInput = input(id: 'userInput', message: 'SonarQube Quality Gate is failing, do you still want to proceed?', ok: 'Yes')
                                 println ("userInput: $userInput");
                             }
                         }
